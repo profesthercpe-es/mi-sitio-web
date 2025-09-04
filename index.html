@@ -73,21 +73,27 @@
             position: relative;
             display: inline-block;
             text-transform: uppercase;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border: 3px solid #009e88;
-            border-radius: 10px;
+            text-shadow: 
+                1px 0 0 #009e88,
+                -1px 0 0 #009e88,
+                0 1px 0 #009e88,
+                0 -1px 0 #009e88,
+                1px 1px 0 #009e88,
+                -1px 1px 0 #009e88,
+                1px -1px 0 #009e88,
+                -1px -1px 0 #009e88;
             padding: 15px 30px;
         }
         
         h1::after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 4px;
-            background: #007f6e;
+            height: 3px;
+            background: #009e88;
             border-radius: 2px;
         }
         
@@ -95,8 +101,8 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 158, 136, 0.3);
@@ -793,6 +799,59 @@
             color: #009e88;
         }
         
+        /* Blurred section for FAQs */
+        .blurred-section {
+            position: relative;
+            padding: 60px;
+            margin: 40px auto;
+            max-width: 900px;
+            border-radius: 14px;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .blurred-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('imagenes/foto3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(1px);
+            z-index: -1;
+        }
+        
+        .blurred-section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: -1;
+        }
+        
+        .blurred-section h2 {
+            margin-top: 0;
+            font-size: 2.2em;
+            color: white;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .blurred-section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 4.2rem;
@@ -831,6 +890,11 @@
                 padding: 35px;
             }
             
+            .blurred-section {
+                margin: 20px 10px;
+                padding: 40px 20px;
+            }
+            
             .mazunte-section {
                 margin: 40px 10px;
                 padding: 40px 15px;
@@ -847,8 +911,8 @@
             }
             
             .logo {
-                width: 60px;
-                height: 60px;
+                width: 80px;
+                height: 80px;
                 top: 15px;
                 left: 15px;
             }
@@ -1355,3 +1419,4 @@
     </div>
 </body>
 </html>
+```
